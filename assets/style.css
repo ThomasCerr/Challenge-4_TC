@@ -45,7 +45,7 @@ header nav ul li a {
   
 }
 
-section {
+.container {
 
   margin: 90px auto auto auto;
   width: 30%;
@@ -58,4 +58,12 @@ section {
 section div {
   border: 3px;
   padding: 20px;
+}
+
+.hidden {
+  display:none;
+}
+
+.visible {
+  display:visible;
 }
