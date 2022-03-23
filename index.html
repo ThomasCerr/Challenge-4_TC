@@ -24,33 +24,30 @@
 <body>
   <section class = "container">
 
-    <div class="box" id = "intro" data-number="0" data-state="visible">
+    <div class="box1" id = "intro" data-number="0" data-state="visible">
     <div><b><h2> Quiz Challenge</h2></b> </div>
     <div> <h3>Try to answer the following code-related questions within the time limit. 
       Keep in mind that incorrect answers <br> penalize your score/time by ten seconds!</h3></div>
     <button class="start" id="start">Start Quiz</button>
   </div>
 
-<div class = "box2" id="quizbox">
-     <div class="box" data-number="1" data-state="hidden"> 
-        <div class = "qText"> </div>
-        <div class = "qOptions"> </div>
-     </div>
-  
-     <div class="box" data-number="2" data-state="hidden"> 
-        <div class = "qText"> </div>
-        <div class = "qOptions"> </div>
-    </div>
+  <div id="quiz" data-state="hidden">
 
-      <div class="box" data-number="3" data-state="hidden"> 
-        <div class = "qText"> </div>
-        <div class = "qOptions"> </div>
-      </div>
+    <div id="question"></div>
 
-      <div class="box" data-number="4" data-state="hidden"> 
-        <div class = "qText"> </div>
-        <div class = "qOptions"> </div>
-      </div>
+    <div id="qImg"></div>
+
+    <div id="choices">
+
+        <div class="choice" id="A" onclick="checkAnswer('A')"></div>
+
+        <div class="choice" id="B" onclick="checkAnswer('B')"></div>
+
+        <div class="choice" id="C" onclick="checkAnswer('C')"></div>
+
+        <div class="choice" id="D" onclick="checkAnswer('D')"></div>
+
+   </div>
 
   </div>
 

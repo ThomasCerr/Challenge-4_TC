@@ -60,10 +60,10 @@ section div {
   padding: 20px;
 }
 
-.hidden {
+[data-state = hidden] {
   display:none;
 }
 
-.visible {
+[data-state = visible] {
   display:visible;
 }
