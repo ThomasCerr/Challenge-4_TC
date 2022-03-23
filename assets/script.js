@@ -8,10 +8,10 @@ var choiceB = document.getElementById("B");
 var choiceC = document.getElementById("C");
 var choiceD = document.getElementById("D");
 var question = document.getElementById("question");
-
+var quizAnswer= document.querySelector(".choice")
+var results = document.querySelector('.results')
 
 var questions = [
-
     {
 
         question : "Commonly used data types DO not Include:",
@@ -24,7 +24,7 @@ var questions = [
 
         choiceD : "numbers",
 
-        correct : "A"
+        correct : "alerts"
 
     },{
 
@@ -71,36 +71,75 @@ var questions = [
 ];
 
 var lastQuestion = questions.length - 1;
-var runningQuestion = 0
+var runningQuestion = 0;
+
+function checkAnswer(event){
+event.preventDefault();
+var choice = event.target.innerText
+if (choice===questions[runningQuestion].correct){
+
+}
+else {}
+runningQuestion++;
+renderQuestion()
+
+
+}
+
+var finalResults = function(){
+    quiz.classList.remove("visible");
+    quiz.classList.add("hidden");
+    displayResults.classList.remove("hidden");
+    displayResults.classList.add("visible");
+
+}
+
 
 function renderQuestion(){
-
-    let q = questions[runningQuestion];
+if (runningQuestion===lastQuestion){
+    var choiceButtons = document.querySelectorAll(".choice-btn");
+    choiceButtons.forEach(button=>{
+    button.addEventListener('click',finalResults);
+    console.log('hello')
+    
+})
+}
+ else var q = questions[runningQuestion];
 
     question.innerHTML = "<p>"+ q.question +"</p>";
 
-    choiceA.innerHTML = q.choiceA;
+    choiceA.innerHTML = "<button class = 'choice-btn'>" + q.choiceA + "</button>";
 
-    choiceB.innerHTML = q.choiceB;
+    choiceB.innerHTML = "<button class = 'choice-btn'>" + q.choiceB + "</button>";
 
-    choiceC.innerHTML = q.choiceC;
+    choiceC.innerHTML = "<button class = 'choice-btn'>" + q.choiceC + "</button>";
 
-    choiceD.innerHTML = q.choiceD;
+    choiceD.innerHTML = "<button class = 'choice-btn'>" + q.choiceD + "</button>";
+
+ var choiceButtons = document.querySelectorAll(".choice-btn");
+choiceButtons.forEach(button=>{
+button.addEventListener('click',checkAnswer)
+
+})
+
 }
+
+
 
 // Hide intro & Show Q1//
 
 
-var startQuiz = function(){
-quizBox1.classList.remove("data-state","visible");
-quizBox1.classList.add("data-state","hidden");
-quiz.classList.remove("data-state","hidden");
-quiz.classList.add("data-state","visible");;
+var startQuiz = function (){
+    quizBox1.classList.remove("visible");
+    quizBox1.classList.add("hidden");
+    quiz.classList.remove("hidden");
+    quiz.classList.add("visible");
     renderQuestion();
-
+    ;
 }
 
-submitButton.addEventListener('click',startQuiz)
+
+submitButton.addEventListener('click',startQuiz);
 
 
 

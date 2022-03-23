@@ -24,34 +24,32 @@
 <body>
   <section class = "container">
 
-    <div class="box1" id = "intro" data-number="0" data-state="visible">
+    <div class="box1 visible" id = "intro" data-number="0" >
     <div><b><h2> Quiz Challenge</h2></b> </div>
     <div> <h3>Try to answer the following code-related questions within the time limit. 
       Keep in mind that incorrect answers <br> penalize your score/time by ten seconds!</h3></div>
     <button class="start" id="start">Start Quiz</button>
   </div>
 
-  <div id="quiz" data-state="hidden">
+  <div id="quiz" class="hidden">
 
     <div id="question"></div>
 
-    <div id="qImg"></div>
-
     <div id="choices">
 
-        <div class="choice" id="A" onclick="checkAnswer('A')"></div>
+        <div class="choice" id="A"></div>
 
-        <div class="choice" id="B" onclick="checkAnswer('B')"></div>
+        <div class="choice" id="B"></div>
 
-        <div class="choice" id="C" onclick="checkAnswer('C')"></div>
+        <div class="choice" id="C"></div>
 
-        <div class="choice" id="D" onclick="checkAnswer('D')"></div>
+        <div class="choice" id="D"></div>
 
    </div>
 
   </div>
 
-  <div class = "results" id="results">Correct/Incorrect Display here</div>
+  <div class = "results hidden" id="results">Correct/Incorrect Display here</div>
   </section>
 
   <script src="assets/script.js"></script>
