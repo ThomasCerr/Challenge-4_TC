@@ -15,30 +15,28 @@ var highscorePage = document.querySelector('.highscore')
 var submitEnd = document.querySelector('.end')
 var highscore = 0
 var bottomResults = document.getElementById('.bottomresults')
+var timer= ""
 
 
 //timer
-function startTimer(duration, display) {
-    var timer = duration, seconds;
-    setInterval(function () {
-    
-        seconds = parseInt(timer % 60, 10);
-
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-
-        display.textContent = seconds;
-
-        if (--timer < 0) {
-            timer = duration;
-        }
-    }, 1000);
+function startTimer() {
+    var sec = 60;
+    function startTimer(){
+        var timer = setInterval(function(){
+            sec--;
+            document.getElementById('time').innerHTML=sec;
+            if (sec < 0) {
+                clearInterval(timer);
+                alert("Time is up!")
+            }
+        }, 1000);
+    }
+    // document.getElementById('incorrect').addEventListener('click', function() {
+    //     sec -= 5;
+    //     document.getElementById('time').innerHTML='00:'+sec;
+    // });
+    startTimer();
 }
-
-window.onload = function () {
-    var oneMinutes = 60 * 1,
-        display = document.querySelector('#time');
-    startTimer(oneMinutes, display);
-};
 
 
 
@@ -155,5 +153,8 @@ var highscorePage = function () {
 }
 
 
-submitButton.addEventListener('click',startQuiz);
-
+submitButton.addEventListener('click',()=> {
+    startQuiz(); 
+    startTimer();
+}
+);
