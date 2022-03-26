@@ -13,8 +13,7 @@
   </h1>
   <nav>
     <ul>
-      <li>
-        <h3>Timer Goes Here</h3>
+      <li class = "timer"> <h3>Time: <span id="time">60</span> seconds left!</h3>
       </li>
     </ul>
   </nav>
@@ -38,18 +37,36 @@
     <div id="choices">
 
         <div class="choice" id="A"></div>
-
         <div class="choice" id="B"></div>
-
         <div class="choice" id="C"></div>
-
         <div class="choice" id="D"></div>
 
    </div>
 
   </div>
 
-  <div class = "results hidden" id="results">Correct/Incorrect Display here</div>
+  <div class = "results hidden" id="results">
+  <h2>All Done!</h2>
+  <h3>Your final score is:<p id="finalhighscore"></p> </h3>
+  <form class = formInitials>
+    <label for="Initials"> Initials: </label><br>
+    <input type="text" id="lname" name="lname" value="TSC"><br><br>
+    <button class="end" id="end"> Submit</button>
+  </form>
+</div>
+
+<div class = "highscore hidden" id="highscore">
+  <h2>Highscores</h2>
+  <button class="goback" id="goback">Go Back</button>
+  <button class="clearhighscore" id="clearhighscore">Clear Highscores</button>
+  </form>
+</div>
+
+<div class = bottomresults> <p id ="bottomresults"></p>
+</div>
+ 
+
+
   </section>
 
   <script src="assets/script.js"></script>
