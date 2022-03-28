@@ -8,7 +8,6 @@ var choiceC = document.getElementById("C");
 var choiceD = document.getElementById("D");
 var question = document.getElementById("question");
 var quizAnswer= document.querySelector(".choice");
-var results = document.querySelector('.results');
 var bottomResults = document.querySelector('.bottomResults');
 var highscorePage = document.getElementById('highscore');
 var submitEnd = document.querySelector('.end');
@@ -16,6 +15,20 @@ var highscore = 0;
 var bottomResults = document.getElementById('.bottomresults');
 var timer= "";
 var sec = 60;
+
+
+var printHighscore = document.getElementById("finalhighscore").textContent=highscore;
+//highscore page variables
+
+
+
+
+var playAgain = document.getElementById('playagain');
+var clearHighscore = document.getElementById('.clearhighscore');
+
+
+
+
 
 
 //timer
@@ -26,6 +39,10 @@ var sec = 60;
             if (sec < 1) {
                 clearInterval(timer);
                 alert("Time is up!")
+                quiz.classList.remove("visible");
+                 quiz.classList.add("hidden");
+                 displayScore.classList.remove("hidden");
+                displayScore.classList.add("visible");
             }
         }, 1000);
     }
@@ -96,13 +113,32 @@ function finalResults (){
     displayScore.classList.add("visible");
     var bottomResultsHide= document.querySelector('.bottomresults');
     bottomResultsHide.classList.add("hidden");
-    document.getElementById("finalhighscore").textContent=highscore;
+    var printHighscore = document.getElementById("finalhighscore").textContent=highscore;
+    var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+    var username = document.getElementById("lname");
+    var mostRecentScore = localStorage.getItem("mostRecentScore");
+    printHighscore.innerText = mostRecentScore;
+   
 
-
+    saveHighScore = e => {
+        e.preventDefault();
+        var score = {
+            score: mostRecentScore,
+            name: username.value
+        };
+        highScores.push(score);
+        highScores.sort((a,b) =>  b.score - a.score)
+        highScores.splice(5);
+        localStorage.setItem("highScores", JSON.stringify(highScores))
+    }
+    
+    
 }
+
 
 function renderQuestion(){
     var q;
+    console.log(highscore)
     if (runningQuestion===lastQuestion){
      finalResults()
     }
@@ -130,17 +166,30 @@ var startQuiz = function (){
     quiz.classList.remove("hidden");
     quiz.classList.add("visible");
     renderQuestion();
+    sec=60;
 }
 
 var finalBox = function (event) {
     event.preventDefault();
-    console.log(highscorePage)
     displayScore.classList.remove("visible");
     displayScore.classList.add("hidden");
     highscorePage.classList.remove("hidden");
     highscorePage.classList.add("visible");
     
 }
+
+var restart = function (){
+    highscorePage.classList.remove("visible");
+    highscorePage.classList.add("hidden");
+    quizBox1.classList.remove("hidden");
+    quizBox1.classList.add("visible");
+    sec=600;
+} 
+
+
+var reloadpage = function(){
+var reload = location.reload();}
+
 
 
 submitButton.addEventListener('click',()=> {
@@ -149,3 +198,6 @@ submitButton.addEventListener('click',()=> {
 }
 );
 submitEnd.addEventListener('click',finalBox)
+playAgain.addEventListener('click', reloadpage)
+
+

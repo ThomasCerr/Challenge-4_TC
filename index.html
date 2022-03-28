@@ -9,7 +9,6 @@
 </head>
 <header>
   <h1>
-    <a href="Highscore">View High Scores</a>
   </h1>
   <nav>
     <ul>
@@ -26,7 +25,7 @@
     <div class="box1 visible" id = "intro" data-number="0" >
     <div><b><h2> Quiz Challenge</h2></b> </div>
     <div> <h3>Try to answer the following code-related questions within the time limit. 
-      Keep in mind that incorrect answers <br> penalize your score/time by ten seconds!</h3></div>
+      Keep in mind that incorrect answers <br> penalize your time by ten seconds!</h3></div>
     <button class="start" id="start">Start Quiz</button>
   </div>
 
@@ -42,22 +41,21 @@
         <div class="choice" id="D"></div>
 
    </div>
-
   </div>
 
   <div class = "results hidden" id="results">
-  <h2>All Done!</h2>
-  <h3>Your final score is:<p id="finalhighscore"></p> </h3>
+    <h2>All Done!</h2>
+      <h3>Your final score is:<p id="finalhighscore"></p> </h3>
   <form class = formInitials>
     <label for="Initials"> Initials: </label><br>
-    <input type="text" id="lname" name="lname" value="TSC"><br><br>
-    <button class="end" id="end"> Submit</button>
+      <input type="text" id="lname" name="lname" value="TSC"><br><br>
+        <button class="end" id="end"> Submit</button>
   </form>
 </div>
 
 <div class = "highscore hidden" id="highscore">
   <h2>Highscores</h2>
-  <button class="goback" id="goback">Go Back</button>
+  <button class="playagain" id="playagain">Play Again</button>
   <button class="clearhighscore" id="clearhighscore">Clear Highscores</button>
 </div>
 
