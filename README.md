@@ -33,6 +33,6 @@ THEN I can save my initials and score
 ```
 ## Mockup
 
-<img src= "https://github.com/ThomasCerr/Challenge_4_TC/blob/master/assets/images/Example.PNG">
+<img src= "https://github.com/ThomasCerr/Challenge-4_TC/blob/master/assets/images/example.PNG">
 
 Link to deployed application: https://thomascerr.github.io/Challenge-4_TC/
